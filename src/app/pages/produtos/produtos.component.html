@@ -1,11 +1,18 @@
-<section class="product-list">
-  <div class="product-list__card" *ngFor="let produto of produtos">
-    <a class="product-list__link">
-      <img [src]="produto.imagem" alt="" />
-      <h2 class="product-item__name">{{produto.nome}}</h2>
-      <p class="product-item__price">{{produto.preco | currency: 'BRL'}}</p>
-      <p class="product-item__price-deion">{{produto.descricaoPreco}}</p>
-      <button type="button" class="product-item__buy-button">Comprar</button>
-    </a>
-  </div>
+<section class="product-list" *ngIf="produtos$ | async as produtos; else loading">
+    <div class="product-list__card" *ngFor="let produto of produtos">
+      <a class="product-list__link" routerLink="/produtos/{{produto.id}}">
+        <img [src]="produto.imagem" alt="" />
+        <h2 class="product-item__name">{{ produto.nome }}</h2>
+        <p class="product-item__price">
+          {{ produto.preco | currency : "BRL" }}
+        </p>
+        <p class="product-item__price-deion">{{ produto.descricaoPreco }}</p>
+        <button type="button" class="product-item__buy-button">Comprar</button>
+      </a>
+    </div>
 </section>
+<ng-template #loading>
+  <div>
+    <p>Carregando Quartos</p>
+  </div>
+</ng-template>
