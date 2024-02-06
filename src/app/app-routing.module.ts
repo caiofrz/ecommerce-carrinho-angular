@@ -5,12 +5,19 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'produtos',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'produtos',
     loadChildren: () =>
       import('./pages/produtos/produtos.module').then((m) => m.ProdutosModule),
+  },
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./pages/not-found-404/not-found-404.module').then(
+        (m) => m.NotFound404Module
+      ),
   },
 ];
 
