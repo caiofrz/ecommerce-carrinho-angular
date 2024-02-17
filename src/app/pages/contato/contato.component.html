@@ -1,0 +1,106 @@
+<h2 class="contact__title">Entre em contato conosco</h2>
+<section class="contact__container">
+  <form
+    class="contact-form"
+    #formDir="ngForm"
+    [formGroup]="formContato"
+    (ngSubmit)="enviarFormulario()"
+  >
+    <input type="text" placeholder="Digite seu nome" formControlName="nome" />
+    <span
+      *ngIf="nome?.hasError('required') && formDir.submitted"
+      class="error-message"
+    >
+      *Nome é obrigatório
+    </span>
+    <span
+      *ngIf="nome?.errors?.['minlength'] && formDir.submitted"
+      class="error-message"
+    >
+      *Nome deve ter mais de 3 caracteres
+    </span>
+    <input
+      type="text"
+      placeholder="Digite o assunto"
+      formControlName="assunto"
+    />
+    <span
+      *ngIf="assunto?.hasError('required') && formDir.submitted"
+      class="error-message"
+    >
+      *Assunto é obrigatório
+    </span>
+    <span
+      *ngIf="assunto?.errors?.['minlength'] && formDir.submitted"
+      class="error-message"
+    >
+      *Assunto deve ter mais de 5 caracteres
+    </span>
+    <input
+      type="tel"
+      placeholder="(99) 9 9999-9999"
+      mask="(00) 00000-0000"
+      formControlName="telefone"
+    />
+    <span
+      *ngIf="telefone?.hasError('required') && formDir.submitted"
+      class="error-message"
+    >
+      *Telefone é obrigatório
+    </span>
+    <span
+      *ngIf="telefone?.errors?.['minlength'] && formDir.submitted"
+      class="error-message"
+    >
+      *Telefone deve ter 11 numeros
+    </span>
+    <input
+      type="email"
+      placeholder="Informe seu email"
+      formControlName="email"
+    />
+    <span
+      *ngIf="email?.hasError('required') && formDir.submitted"
+      class="error-message"
+    >
+      *Email é obrigatório
+    </span>
+    <span
+      *ngIf="email?.hasError('email') && formDir.submitted"
+      class="error-message"
+    >
+      *Email deve ser um email válido
+    </span>
+    <textarea
+      maxlength="300"
+      placeholder="Escreva sua mensagem aqui"
+      formControlName="mensagem"
+    ></textarea>
+    <span
+      *ngIf="mensagem?.hasError('required') && formDir.submitted"
+      class="error-message"
+    >
+      *Mensagem é obrigatório
+    </span>
+    <span
+      *ngIf="mensagem?.errors?.['minlength'] && formDir.submitted"
+      class="error-message"
+    >
+      *Mensagem deve mais de 20 caracteres
+    </span>
+
+    <button type="submit" (click)="enviarFormulario()">Enviar</button>
+  </form>
+
+  <address>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d490432.6425521199!2d-40.646116014735945!3d-16.194456472851105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x749932867f54b61%3A0x2e73fc6868ffd4da!2sJacinto%20-%20MG!5e0!3m2!1spt-BR!2sbr!4v1707448566625!5m2!1spt-BR!2sbr"
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </address>
+</section>

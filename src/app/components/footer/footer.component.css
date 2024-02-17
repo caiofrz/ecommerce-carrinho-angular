@@ -33,9 +33,10 @@ footer {
 }
 
 
-.footer i {
-  color: var(--orange);
+.footer__container i {
+  color: var(--blue);
 }
-.footer li {
+.footer__container li {
   margin: 10px 0;
+  cursor: pointer;
 }

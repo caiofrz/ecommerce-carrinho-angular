@@ -13,6 +13,12 @@ const routes: Routes = [
       import('./pages/produtos/produtos.module').then((m) => m.ProdutosModule),
   },
   {
+    path: 'carrinho',
+    loadChildren: () =>
+      import('./pages/carrinho/carrinho.module').then((m) => m.CarrinhoModule),
+  },
+  { path: 'contato', loadChildren: () => import('./pages/contato/contato.module').then(m => m.ContatoModule) },
+  {
     path: '**',
     loadChildren: () =>
       import('./pages/not-found-404/not-found-404.module').then(
