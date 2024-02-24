@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ProdutosService {
-  private readonly baseApiUrl = enviroment.baseApiUrl;
+  private readonly baseApiUrl = enviroment.productionUrl;
   endpoint = `${this.baseApiUrl}/produtos`;
 
   constructor(private http: HttpClient) {}
