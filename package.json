@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "db": "npx json-server db.json",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && npm run db",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
